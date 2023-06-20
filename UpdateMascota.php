@@ -53,22 +53,23 @@ $dataMascota     = mysqli_fetch_array($queryMascota);
     $sqlRazaMascota   = ("SELECT raza FROM  razas ");
     $dataRazaMascota  = mysqli_query($con, $sqlRazaMascota);
     ?>
-      <div class="form-group col-md-6">
+  <div class="form-group col-md-6">
       <label for="raza_mascota">Raza de tu Mascota:</label>
       <select class="form-control" name="raza_mascota" id="raza_mascota">
         <?php
-          while ($rowRaza = mysqli_fetch_array($dataRazaMascota)) {
-          if ($rowRaza['raza'] == $dataMascota['raza']) { ?>
-          <option value="<?php echo $rowRaza['id']; ?>" selected>
-            <?php echo $rowRaza['raza']; ?> 
-          </option>
-          <?php }else{ ?>
-          <option value="<?php echo $rowRaza['id']; ?>">
-            <?php echo $rowRaza['raza']; ?> 
-          </option>
-          <?php } } ?>
-        </select>
-      </div>
+        while ($rowRaza = mysqli_fetch_array($dataRazaMascota)) {
+          if ($rowRaza['raza'] == $dataMascota['raza_mascota']) { ?>
+            <option value="<?php echo $rowRaza['raza']; ?>" selected>
+              <?php echo $rowRaza['raza']; ?>
+            </option>
+          <?php } else { ?>
+            <option value="<?php echo $rowRaza['raza']; ?>">
+              <?php echo $rowRaza['raza']; ?>
+            </option>
+        <?php }
+        } ?>
+      </select>
+    </div>
 
     </div>
 
